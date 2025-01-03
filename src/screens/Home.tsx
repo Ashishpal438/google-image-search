@@ -13,7 +13,8 @@ const Home = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    padding: 15,
+    paddingHorizontal: 15,
+    backgroundColor: '#1E2025',
   },
 });
 
