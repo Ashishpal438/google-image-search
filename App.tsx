@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
   return (
     <>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'light-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Navigator />
