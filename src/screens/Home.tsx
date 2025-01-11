@@ -1,17 +1,21 @@
-import {Text, StyleSheet, View} from 'react-native';
-import React from 'react';
+import {Text, StyleSheet, View, ScrollView} from 'react-native';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import SearchBar from '../components/SearchBar';
 import Header from '../components/Header';
+import GoogleLensResults from '../components/GoogleLensResults';
 
 const Home = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   return (
     <SafeAreaView style={styles.wrapper}>
       <Header />
       <View style={styles.googleContainer}>
         <Text style={styles.google}>Google</Text>
       </View>
-      <SearchBar />
+      <SearchBar setSearchResults={setSearchResults} setLoading={setLoading} />
+      <GoogleLensResults searchResults={searchResults} loading={loading} />
     </SafeAreaView>
   );
 };
