@@ -4,9 +4,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import SearchBar from '../components/SearchBar';
 import Header from '../components/Header';
 import GoogleLensResults from '../components/GoogleLensResults';
+import TextSearchResults from '../components/TextSearchResults';
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const [textSearchResults, setTextSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -14,8 +16,24 @@ const Home = () => {
       <View style={styles.googleContainer}>
         <Text style={styles.google}>Google</Text>
       </View>
-      <SearchBar setSearchResults={setSearchResults} setLoading={setLoading} />
-      <GoogleLensResults searchResults={searchResults} loading={loading} />
+      <SearchBar
+        setSearchResults={setSearchResults}
+        setLoading={setLoading}
+        loading={loading}
+        setTextSearchResults={setTextSearchResults}
+        textSearchResults={textSearchResults}
+      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {textSearchResults?.organic_results?.length > 0 && (
+          <TextSearchResults
+            textSearchResults={textSearchResults}
+            loading={loading}
+          />
+        )}
+        {searchResults.length > 0 && (
+          <GoogleLensResults searchResults={searchResults} loading={loading} />
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };
