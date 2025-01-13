@@ -50,5 +50,6 @@ React Native
 1. Google app Homepage
 2. Google Lens Search and Results Page
 3. Text Search and Results Page
+4. Google Search Auto-Suggestions.
 
 [DEMO VIDEO](https://drive.google.com/file/d/1UlHSE-ZXipLv7iuKET_BtzaY9BI9ceOJ/view?usp=sharing)
